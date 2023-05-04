@@ -1,4 +1,3 @@
-const bcrypt = require('bcryptjs')
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
@@ -15,6 +14,7 @@ db.once('open', async () => {
     }
 
     db.close()
+    console.log('category seeder DONE!')
   } catch (err) {
     console.log(err)
   }
