@@ -5,12 +5,33 @@ if (process.env.NODE_ENV !== 'production') {
 const db = require('../../config/mongoose')
 const category = require('../category')
 
-const categories = ['家居物業','交通出行','休閒娛樂','餐飲食品','其他']
+const categories = [
+  {
+    "name": "家居物業",
+    "icon": "https://fontawesome.com/icons/home?style=solid"
+  },
+  {
+    "name": "交通出行",
+    "icon": "https://fontawesome.com/icons/shuttle-van?style=solid"
+  },
+  {
+    "name": "休閒娛樂",
+    "icon": "https://fontawesome.com/icons/shuttle-van?style=solid"
+  },
+  {
+    "name": "餐飲食品",
+    "icon": "https://fontawesome.com/icons/shuttle-van?style=solid"
+  },
+  {
+    "name": "其他",
+    "icon": "https://fontawesome.com/icons/pen?style=solid"
+  }
+]
 
 db.once('open', async () => {
   try {
     for (let i=0; i<categories.length; i++){
-      await category.create({name: categories[i]})
+      await category.create({...categories[i]})
     }
 
     db.close()
