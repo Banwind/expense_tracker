@@ -4,7 +4,7 @@ const router = express.Router() // 準備引入路由模組
 const home = require('./modules/home') // 引入 home 模組程式碼
 const records = require('./modules/records')
 const users = require('./modules/users')
-const auth = require('./modules/auth')
+const auth = require('./modules/auth.js')
 const search = require('./modules/search')
 
 const { authenticator } = require('../middleware/auth') // 進到路由之前需要先通過auth檢查是否登入
