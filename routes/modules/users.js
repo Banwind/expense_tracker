@@ -3,7 +3,7 @@ const router = express.Router()
 const User = require('../../models/user')
 const passport = require('passport')
 const bcryptUtil = require('../../utils/bcryptUtil')
-console.log('users')
+
 // 進入登入頁面
 router.get('/login', (req, res) => {
   const error = req.flash('error')

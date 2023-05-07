@@ -6,6 +6,7 @@ const categories = require('../category')
 
 const users = {
   name: "小新",
+  email: "123@gmail.com",
   password: "123456" 
 }
 const records = [
