@@ -22,3 +22,5 @@ router.get('/:category?', async (req, res) => {
     })
     .catch(error => console.error(error))
 })
+
+module.exports = router

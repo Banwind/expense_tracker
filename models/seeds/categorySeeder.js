@@ -1,7 +1,3 @@
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config()
-}
-
 const db = require('../../config/mongoose')
 const category = require('../category')
 
@@ -19,12 +15,12 @@ const categories = [
   {
     "name": "休閒娛樂",
     "name_en": "entertainment",
-    "icon": "https://fontawesome.com/icons/shuttle-van?style=solid"
+    "icon": "https://fontawesome.com/icons/face-grin-beam?style=solid"
   },
   {
     "name": "餐飲食品",
     "name_en": "food",
-    "icon": "https://fontawesome.com/icons/shuttle-van?style=solid"
+    "icon": "https://fontawesome.com/icons/utensils?style=solid"
   },
   {
     "name": "其他",

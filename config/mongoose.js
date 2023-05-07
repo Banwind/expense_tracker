@@ -1,6 +1,16 @@
 const mongoose = require('mongoose') // 載入 mongoose
 
-mongoose.connect('mongodb+srv://alpha:camp@cluster0.dgxufmq.mongodb.net/expense_tracker?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true}) // 設定連線到 mongoDB
+// 加入這段 code, 僅在非正式環境時, 使用 dotenv
+if (process.env.NODE_ENV !== 'production') {
+   require('dotenv').config()
+}
+
+mongoose.connect(process.env.MONGODB_URI, { 
+  useNewUrlParser: true, 
+  useUnifiedTopology: true, 
+  useFindAndModify: false, // PUT
+  useCreateIndex: true
+}) // 設定連線到 mongoDB
 
 // 取得資料庫連線狀態
 const db = mongoose.connection
