@@ -1,12 +1,10 @@
 const express = require('express')
 const router = express.Router()
 const Record = require('../../models/record')
-const Category = require('../../models/category')
-const categoryJSON = require('../../models/seeds/category.json')
 
 router.get('/', async (req, res, next) => {
   const userId = req.user._id
-  
+
   Record.find({ userId })
     .lean()
     .then(records => {
@@ -19,6 +17,5 @@ router.get('/', async (req, res, next) => {
     })
     .catch(error => console.error(error))
 })
-
 
 module.exports = router
