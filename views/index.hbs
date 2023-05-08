@@ -1,6 +1,9 @@
-<!-- search bar、sort function -->
 <div class="container">
   <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+      aria-expanded="false">
+      選擇類別
+    </button>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
       <li><a class="dropdown-item" href="/property">家居物業</a></li>
       <li><a class="dropdown-item" href="/transportation">交通出行</a></li>
@@ -9,29 +12,28 @@
       <li><a class="dropdown-item" href="/others">其他</a></li>
     </ul>
   </div>
-
-  <h2 class="total_cost">總金額: {{total_cost}}</h2>
-
+  <span>總金額:</span>
+  <span class="total_cost">{{total_cost}}</span>
   <div class="record_list">
     {{#each records}}
     <div class="record_item">
-      {{!-- 需要補圖 --}}
-      <img src="{{icon_url}}" alt="">
-      <div class="record_detail">
+      <div class="record_icon">
+        <img src={{{this.category.icon}}} alt="">
+      </div>
+      <div class="record_info">
         <h3 class="record_name">{{this.name}}</h3>
         <p class="record_date">{{this.date}}</p>
       </div>
-      <h2 class="record_price">{{this.amount}}</h2>
-      <div class="btn_list">
-        <a href="./records/{{this._id}}/edit" style="display: inline-block; margin-right: 15px;"
-          class="btn btn-secondary">edit</a>
-        <form action="./records/{{ this._id }}?_method=DELETE" method="POST"
-          style="display: inline-block; margin-right: 20px;">
-          <button type="submit" class="btn btn-danger">delete</button>
+      <div class="record_amount">
+        <h2 class="record_price">{{this.amount}}</h2>
+      </div>
+      <div class="record_actions">
+        <a href="./records/{{this._id}}/edit" class="btn btn-secondary">Edit</a>
+        <form action="./records/{{this._id}}?_method=DELETE" method="POST">
+          <button type="submit" class="btn btn-danger">Delete</button>
         </form>
       </div>
     </div>
     {{/each}}
   </div>
-
 </div>

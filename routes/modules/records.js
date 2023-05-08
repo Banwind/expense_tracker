@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const Records = require('../../models/record')
+const Category = require('../../models/category');
 
 // 前往新增的頁面
 router.get('/new', (req, res) => {
@@ -26,8 +27,13 @@ router.get('/:id/edit', (req, res) => {
   const _id = req.params.id
   return Records.findOne({ _id, userId })
     .lean()
-    .then((record) => res.render('edit', { record }))
-    .catch(error => console.log(error))
+    .then((record) => {
+      Category.findById(record.categoryId).then((category) => {
+        record.category = category.name;
+        res.render('edit', { record })
+      })
+    })
+    .catch(error => console.error(error))
 })
 
 // 將修改完的資訊回傳回資料庫並更新

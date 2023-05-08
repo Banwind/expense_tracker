@@ -1,0 +1,52 @@
+.record_item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.record_icon {
+  flex: 0 0 50px;
+  margin-right: 10px;
+}
+
+.record_icon img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.record_info {
+  flex: 1 1 0;
+  margin-right: 10px;
+}
+
+.record_name {
+  margin-top: 0;
+}
+
+.record_amount {
+  flex: 0 0 100px;
+  text-align: right;
+}
+
+.record_actions {
+  flex: 0 0 200px;
+}
+
+.record_price {
+  margin-right: 20px;
+}
+
+.container {
+  width: 50%;
+}
+
+.navbar-brand {
+  margin-left: 30px;
+}
+
+.total_cost {
+  color: coral;
+  font-size: 60px;
+}
