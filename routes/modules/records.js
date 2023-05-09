@@ -3,9 +3,11 @@ const router = express.Router()
 const Records = require('../../models/record')
 const Category = require('../../models/category');
 
+
 // 前往新增的頁面
-router.get('/new', (req, res) => {
-  return res.render('new')
+router.get('/new', async (req, res) => {
+  const categories = await Category.find().lean()
+  return res.render('new', { categories })
 })
 
 // 接住新增的資料
