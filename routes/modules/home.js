@@ -10,7 +10,6 @@ router.get('/', async (req, res, next) => {
       .populate({ path: 'categoryId', model: 'Category' })
       .lean()
 
-    console.log(records)
     const total_cost = records.reduce((sum, record) => sum + record.amount, 0)
 
     records = records.map(record => {

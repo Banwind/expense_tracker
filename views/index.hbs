@@ -37,11 +37,14 @@
       </div>
       <div class="record_actions">
         <a href="./records/{{this._id}}/edit" class="btn">修改</a>
-        <form action="./records/{{this._id}}?_method=DELETE" method="POST">
+        <form action="./records/{{this._id}}?_method=DELETE" method="post">
           <button type="submit" class="btn">刪除</button>
         </form>
       </div>
     </div>
     {{/each}}
   </div>
+  <form action="/records/new" method="get">
+    <button type="submit" class="btn">新增支出</button>
+  </form>
 </div>
