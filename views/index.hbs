@@ -1,25 +1,27 @@
 <div class="container">
-  <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-      aria-expanded="false">
-      選擇類別
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-      <li><a class="dropdown-item" href="/">全部</a></li>
-      <li><a class="dropdown-item" href="/search/property">家居物業</a></li>
-      <li><a class="dropdown-item" href="/search/transportation">交通出行</a></li>
-      <li><a class="dropdown-item" href="/search/entertainment">休閒娛樂</a></li>
-      <li><a class="dropdown-item" href="/search/food">餐飲食品</a></li>
-      <li><a class="dropdown-item" href="/search/others">其他</a></li>
-    </ul>
+  <div class="sort_section">
+    <span>總金額:<span class="total_cost">{{total_cost}}</span></span>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        選擇類別
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" href="/">全部</a></li>
+        <li><a class="dropdown-item" href="/search/property">家居物業</a></li>
+        <li><a class="dropdown-item" href="/search/transportation">交通出行</a></li>
+        <li><a class="dropdown-item" href="/search/entertainment">休閒娛樂</a></li>
+        <li><a class="dropdown-item" href="/search/food">餐飲食品</a></li>
+        <li><a class="dropdown-item" href="/search/others">其他</a></li>
+      </ul>
+    </div>
   </div>
-  <span>總金額:</span>
-  <span class="total_cost">{{total_cost}}</span>
+
   <div class="record_list">
     {{#each records}}
     <div class="record_item">
       <div class="record_icon">
-        <img src={{{this.category.icon}}} alt="">
+        <i class="{{{this.categoryId.icon}}}"></i>
       </div>
       <div class="record_info">
         <h3 class="record_name">{{this.name}}</h3>
@@ -29,7 +31,7 @@
         <h2 class="record_price">{{this.amount}}</h2>
       </div>
       <div class="record_actions">
-        <a href="./records/{{this._id}}/edit" class="btn btn-secondary">Edit</a>
+        <a href="./records/{{this._id}}/edit" class="btn btn-secondary ">Edit</a>
         <form action="./records/{{this._id}}?_method=DELETE" method="POST">
           <button type="submit" class="btn btn-danger">Delete</button>
         </form>

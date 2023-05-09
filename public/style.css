@@ -50,3 +50,14 @@
   color: coral;
   font-size: 60px;
 }
+
+.record_actions {
+  display: flex;
+  justify-content: space-evenly ;
+}
+
+.sort_section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
