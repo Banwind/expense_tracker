@@ -17,9 +17,9 @@ router.post('/', (req, res) => {
   Record.save((err) => {
     if (err) {
       console.error(err)
-      return res.status(500).send('Failed to add restaurant')
+      return res.status(500).send('Failed to add record')
     }
-    return res.redirect('/')
+    return res.redirect('../')
   })
 })
 

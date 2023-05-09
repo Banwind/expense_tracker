@@ -12,7 +12,6 @@
   align-items: center;
   width: 65%;
   margin-bottom: 10px;
-  border: 1px solid #ccc;
   padding: 10px;
 }
 
@@ -104,6 +103,8 @@ i {
 }
 
 .form-group {
+  display: flex;
+  justify-content: space-between;
   margin-bottom: 30px;
   font-size: 20px;
 }
@@ -119,4 +120,9 @@ i {
 .button-group {
   display: flex;
   justify-content: space-around;
+}
+
+.record:nth-child(odd) {
+  background-color: #f0f0f0;
+  /* 調整為所需的灰色 */
 }
