@@ -1,6 +1,5 @@
 <div class="container">
   <div class="sort_section">
-    <span>總金額:<span class="total_cost">{{total_cost}}</span></span>
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
         aria-expanded="false">
@@ -16,24 +15,30 @@
       </ul>
     </div>
   </div>
+  <div class="cost_section">
+    <span class="total_cost_text">總金額:</span>
+    <span class="total_cost">{{total_cost}}</span>
+  </div>
 
   <div class="record_list">
     {{#each records}}
-    <div class="record_item">
-      <div class="record_icon">
-        <i class="{{{this.categoryId.icon}}}"></i>
-      </div>
-      <div class="record_info">
-        <h3 class="record_name">{{this.name}}</h3>
-        <p class="record_date">{{this.date}}</p>
-      </div>
-      <div class="record_amount">
-        <h2 class="record_price">{{this.amount}}</h2>
+    <div class="record">
+      <div class="record_item">
+        <div class="record_icon">
+          <i class="{{{this.categoryId.icon}}} fa-3x"></i>
+        </div>
+        <div class="record_info">
+          <h3 class="record_name">{{this.name}}</h3>
+          <p class="record_date">{{this.date}}</p>
+        </div>
+        <div class="record_amount">
+          <h2 class="record_price">{{this.amount}}</h2>
+        </div>
       </div>
       <div class="record_actions">
-        <a href="./records/{{this._id}}/edit" class="btn btn-secondary ">Edit</a>
+        <a href="./records/{{this._id}}/edit" class="btn">修改</a>
         <form action="./records/{{this._id}}?_method=DELETE" method="POST">
-          <button type="submit" class="btn btn-danger">Delete</button>
+          <button type="submit" class="btn">刪除</button>
         </form>
       </div>
     </div>

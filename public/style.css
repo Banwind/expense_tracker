@@ -1,6 +1,16 @@
+.bg-custom-gray {
+  background-color: #e2dada;
+  /* Change this to a lighter gray color */
+}
+
+.record {
+  display: flex;
+}
+
 .record_item {
   display: flex;
   align-items: center;
+  width: 65%;
   margin-bottom: 10px;
   border: 1px solid #ccc;
   padding: 10px;
@@ -54,10 +64,41 @@
 .record_actions {
   display: flex;
   justify-content: space-evenly ;
+  align-items: center;
+  margin-left: 30px;
 }
 
 .sort_section {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+i {
+  margin: auto auto;
+}
+
+.btn {
+  color: black;
+  font-size: 1.5rem;
+  background-color:#fffdfd;
+}
+
+#login, #logout {
+  margin-right: 20px;
+}
+
+#dropdownMenuButton1 {
+  margin: 20px auto 20px auto;
+}
+
+.cost_section {
+  width: 65%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.total_cost_text {
+  font-size: 20px;
+  font-style: bold;
 }
