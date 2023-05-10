@@ -1,33 +1,43 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-8">
-      <form method="post" action="/records/{{record._id}}?_method=PUT">
-        <h2>修改支出細項</h2>
-        <div class="form-group">
-          <label for="name">名稱:</label>
-          <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" value="{{ record.name }}" required>
+      <form action="/records" method="POST" class="edit-form">
+        <div class="form-group-head">
+          <span>*必填欄位</span>
+          <span>修改支出細項</span>
         </div>
-        <div class="form-group">
-          <label for="date">日期*</label>
-          <div>
-            <input type="date" class="form-control" id="date" name="date" max="2500-12-31" value="{{record.date}}" required />
+        <div class="form-group row">
+          <label for="name" class="col-sm-2 col-form-label">名稱*:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" value="{{record.name}}" required>
           </div>
         </div>
-        <div class="form-group">
-          <label for="category">類別:</label>
-          <select class="form-control" id="category" name="category" value="{{ record.category }}" required>
-            {{#each categories}}
-            <option value="{{this._id}}">{{this.name}}</option>
-            {{/each}}
-          </select>
+        <div class="form-group row">
+          <label for="date" class="col-sm-2 col-form-label">日期*:</label>
+          <div class="col-sm-10">
+            <input type="date" class="form-control" id="date" name="date" value="{{record.date}}" required>
+          </div>
         </div>
-        <div class="form-group">
-          <label for="amount">金額:</label>
-          <input type="text" class="form-control" id="amount" placeholder="Enter amount" name="amount" value="{{ record.amount }}" required>
+        <div class="form-group row">
+          <label for="categoryId" class="col-sm-2 col-form-label">類別*:</label>
+          <div class="col-sm-10">
+            <select class="form-control" id="categoryId" name="categoryId" required>
+              <option value="{{record.categoryId._id}}">{{record.categoryId.name}}</option>
+              {{#each category}}
+              <option value="{{this._id}}">{{this.name}}</option>
+              {{/each}}
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="amount" class="col-sm-2 col-form-label">金額*:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="amount" placeholder="Enter amount" name="amount" value="{{record.amount}}" required>
+          </div>
         </div>
         <div class="button-group">
-          <button type="submit" class="btn btn-primary">修改支出</button>
-          <a href="/" class="btn btn-secondary">返回</a>
+          <button type="submit" class="btn btn-primary mt-3">新增支出</button>
+          <a href="/" class="btn btn-secondary mt-3">返回</a>
         </div>
       </form>
     </div>

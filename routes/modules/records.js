@@ -24,18 +24,19 @@ router.post('/', (req, res) => {
 })
 
 // 進入修改頁面，將原有資料傳入edit
-router.get('/:id/edit', (req, res) => {
+router.get('/:id/edit', async(req, res) => {
   const userId = req.user._id
   const _id = req.params.id
-  return Records.findOne({ _id, userId })
+
+  const record = await Records.findOne({ _id, userId })
+    .populate({ path: 'categoryId', model: 'Category' })
     .lean()
-    .then((record) => {
-      Category.findById(record.categoryId).then((category) => {
-        record.category = category.name;
-        res.render('edit', { record })
-      })
-    })
-    .catch(error => console.error(error))
+
+  record.date = record.date.toISOString().split('T')[0];
+
+  const category = await Category.find().lean()
+
+  return res.render('edit', { record, category })
 })
 
 // 將修改完的資訊回傳回資料庫並更新
