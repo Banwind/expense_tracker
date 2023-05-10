@@ -3,7 +3,6 @@ const router = express.Router()
 const Records = require('../../models/record')
 const Category = require('../../models/category');
 
-
 // 前往新增的頁面
 router.get('/new', async (req, res) => {
   const categories = await Category.find().lean()
@@ -50,7 +49,7 @@ router.put('/:id', (req, res) => {
       }
       return Records.findByIdAndUpdate( _id, req.body)
     })
-    .then(()=> res.redirect(`/restaurants/${_id}`))
+    .then(()=> res.redirect('/'))
     .catch(error => console.log(error))
 })
 
@@ -63,9 +62,9 @@ router.delete('/:id', (req, res) => {
       if (!record) {
         return res.status(404).send('Record not found')
       }
-      return Records.findByIdAndUpdate(id)
+      return Records.findByIdAndDelete(_id)
     })
-    .then(() => res.redirect('/'))
+    .then(() => res.redirect('../'))
     .catch(error => console.log(error))    
 })
 

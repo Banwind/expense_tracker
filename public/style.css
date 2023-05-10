@@ -126,3 +126,8 @@ i {
   background-color: #f0f0f0;
   /* 調整為所需的灰色 */
 }
+
+.new_btn {
+  display: grid;
+  justify-items: center;
+}

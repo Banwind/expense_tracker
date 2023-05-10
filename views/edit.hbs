@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-8">
-      <form action="/records" method="POST" class="edit-form">
+      <form action="/records/{{record._id}}?_method=PUT" method="POST" class="edit-form">
         <div class="form-group-head">
           <span>*必填欄位</span>
           <span>修改支出細項</span>
