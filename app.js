@@ -7,6 +7,8 @@ const methodOverride = require("method-override");
 const routes = require("./routes"); // 引用路由器
 const flash = require("connect-flash");
 const app = express();
+const PORT = process.env.PORT || 3000;
+
 
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
@@ -43,6 +45,6 @@ app.use((req, res, next) => {
 app.use(routes);
 
 //監聽伺服器
-app.listen(process.env.PORT, () => {
-  console.log(`This is running on http://localhost:${process.env.PORT}/`);
+app.listen(PORT, () => {
+  console.log(`This is running on http://localhost:${PORT}/`);
 });
