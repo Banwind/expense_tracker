@@ -3,7 +3,11 @@
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
         aria-expanded="false">
-        選擇類別
+        {{#if category}}
+          {{category.name}}
+        {{else}}
+          全部
+        {{/if}}
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
         <li><a class="dropdown-item" href="/">全部</a></li>
