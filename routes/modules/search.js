@@ -15,7 +15,7 @@ router.get("/:category_en?", async (req, res, next) => {
     let category = await Category.findOne({ name_en: category_en }).lean();
 
     records = records.filter(
-      (record) => record.categoryId.name_en === req.params.category
+      (record) => record.categoryId.name_en === req.params.category_en
     );
 
     const total_cost = records.reduce((sum, record) => sum + record.amount, 0);
